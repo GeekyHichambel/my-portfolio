@@ -431,51 +431,86 @@ class BentoGridState extends State<Bentogrid>{
                       child: BentoContainers(color: AppColors.primary_purple, index: 6,
                       child: ClipRect(
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('Get in Touch',
-                                    style: TextStyle(
-                                      fontSize: Globals.width! / Globals.size_32,
-                                      color: AppColors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(width: Globals.width! / Globals.width_10,),
-                                  Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
-                                    size: Globals.width! / Globals.size_24,
-                                    shadows: const [
-                                      Shadow(
-                                        color: AppColors.white,
-                                        blurRadius: 10.0,  
-                                      ),
-                                       Shadow(
-                                        color: AppColors.white,
-                                        blurRadius: 10.0,  
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: Globals.width! / Globals.size_16,),
-                              notifier.hovered_bento == 6? 
-                                    RippleAnimation(
-                                      color: AppColors.tertiary_purple,
+                          child: notifier.section_visble == 'About' ? notifier.hovered_bento == 6 ? RippleAnimation(
+                            color: AppColors.tertiary_purple,
                                       minRadius: 60,
                                       repeat: true,
                                       ripplesCount: 5,
                                       duration: const Duration(seconds: 2),
-                                      child: ContactInfo()
-                                    ) : ContactInfo()
-                            ],
-                          ) : const SizedBox.shrink(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text('Get in Touch',
+                                      style: TextStyle(
+                                        fontSize: Globals.width! / Globals.size_32,
+                                        color: AppColors.white,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    SizedBox(width: Globals.width! / Globals.width_10,),
+                                    Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
+                                      size: Globals.width! / Globals.size_24,
+                                      shadows: const [
+                                        Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        ),
+                                         Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                SizedBox(height: Globals.width! / Globals.size_16,),
+                                ContactInfo()
+                              ],
+                            ),
+                          ) : Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text('Get in Touch',
+                                      style: TextStyle(
+                                        fontSize: Globals.width! / Globals.size_32,
+                                        color: AppColors.white,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    SizedBox(width: Globals.width! / Globals.width_10,),
+                                    Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
+                                      size: Globals.width! / Globals.size_24,
+                                      shadows: const [
+                                        Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        ),
+                                         Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                SizedBox(height: Globals.width! / Globals.size_16,),
+                                ContactInfo()
+                              ],
+                            ) : const SizedBox.shrink(),
                         ),
                       )
                       ),
