@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/components/Tools.dart';
+import 'package:my_portfolio/globals.dart';
 import 'package:my_portfolio/providers/config.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,7 @@ class SkiilList extends StatelessWidget{
     Config notifier = Provider.of<Config>(context);
 
     return Container(
-      height: 400,
+      height: (Globals.width! / Globals.width_400),
       child: ScrollbarTheme(
         data: const ScrollbarThemeData(interactive: false),
         child: ListView.builder(
@@ -36,9 +37,13 @@ class SkiilList extends StatelessWidget{
               onExit: (_) => notifier.set_skill_hovered(-1),
               cursor: SystemMouseCursors.grab,
               child: notifier.hovered_skill == index ? ListTile(
-                leading: Icon(skills[index].icon, color: AppColors.tertiary_purple,),
+                        contentPadding: EdgeInsets.zero,
+              minVerticalPadding: 0.0,
+              minTileHeight: Globals.width! / Globals.height_30,
+                leading: Icon(skills[index].icon, color: AppColors.tertiary_purple, size: Globals.width!/Globals.size_24,),
                 title: Text(skills[index].label,
-                style: const TextStyle(
+                style: TextStyle(
+                  fontSize: Globals.width! / Globals.size_24,
                   color: AppColors.diffWhite,
                 ), 
                 ),
@@ -57,9 +62,13 @@ class SkiilList extends StatelessWidget{
                     )
                   ]
                 ) : ListTile(
-                leading: Icon(skills[index].icon, color: AppColors.tertiary_purple,),
+                   contentPadding: EdgeInsets.zero,
+              minVerticalPadding: 0.0,
+              minTileHeight: Globals.width! / Globals.height_30,
+                leading: Icon(skills[index].icon, color: AppColors.tertiary_purple, size: Globals.width!/Globals.size_20,),
                 title: Text(skills[index].label,
-                style: const TextStyle(
+                style: TextStyle(
+                  fontSize: Globals.width! / Globals.size_20,
                   color: AppColors.diffWhite,
                 ), 
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_portfolio/globals.dart';
 
 class DesktopHeader extends StatelessWidget{
 
@@ -7,7 +8,7 @@ class DesktopHeader extends StatelessWidget{
   Widget build(BuildContext context){
     return Container(
       width: double.maxFinite,
-      height: 500,
+      height: Globals.height! / 2.1,
       child: Lottie.asset(
         'assets/hello_animation.json',
         backgroundLoading: true,

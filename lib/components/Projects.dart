@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/globals.dart';
 import 'package:my_portfolio/providers/config.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -94,7 +95,7 @@ class _ProjectsState extends State<Projects> {
         IconButton(
           padding: EdgeInsets.zero,
           onPressed: () => prevPage(notifier),
-          iconSize: 50.0,
+          iconSize: Globals.width! / Globals.width_40,
           icon: const Icon(
             OctIcons.triangle_left,
             color: AppColors.dark_purple,
@@ -106,7 +107,7 @@ class _ProjectsState extends State<Projects> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Container(
-              height: 250,
+              height: Globals.width! / Globals.width_200,
               decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(16.0),
@@ -149,7 +150,8 @@ class _ProjectsState extends State<Projects> {
                                 flex: 2,
                                 child: Text(
                                   projects[index].about,
-                                  style: const TextStyle(
+                                  style: TextStyle(
+                                    fontSize: Globals.width! / Globals.size_12,
                                     color: AppColors.white,
                                   ),
                                   textAlign: TextAlign.center,
@@ -164,22 +166,25 @@ class _ProjectsState extends State<Projects> {
                                     }
                                   },
                                   style: const ButtonStyle(
+                                    padding: WidgetStatePropertyAll(EdgeInsets.zero),
                                     backgroundColor:
                                         WidgetStatePropertyAll(
                                             AppColors.primary_purple),
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         EvaIcons.paper_plane,
                                         color: AppColors.white,
+                                        size: Globals.width! / Globals.size_12,
                                       ),
-                                      SizedBox(width: 5.0),
+                                      SizedBox(width: Globals.width! / Globals.width_5),
                                       Text(
                                         'View Project',
                                         style: TextStyle(
+                                            fontSize: Globals.width! / Globals.size_12,
                                             color: AppColors.white),
                                       ),
                                     ],
@@ -201,7 +206,7 @@ class _ProjectsState extends State<Projects> {
         IconButton(
           icon: const Icon(OctIcons.triangle_right),
           color: AppColors.dark_purple,
-          iconSize: 50.0,
+          iconSize: Globals.width! / Globals.width_40,
           padding: EdgeInsets.zero,
           alignment: Alignment.center,
           onPressed: () => nextPage(notifier),

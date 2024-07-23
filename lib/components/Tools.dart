@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/globals.dart';
 
 class Tool{
   IconData icon;
@@ -27,14 +28,16 @@ class Tools extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Container(
-      height: 260,
+      height: Globals.width! / Globals.height_100 + 48,
       width: double.maxFinite,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Expanded(child: Text('Tools',
+          Expanded(child: Text('Tools',
             style: TextStyle(
+              fontSize: Globals.width! / Globals.size_16,
               color: AppColors.white,
-              shadows: [
+              shadows: const [
                 BoxShadow(
                   color: AppColors.white,
                   blurRadius: 10.0,
@@ -50,11 +53,11 @@ class Tools extends StatelessWidget{
           ),
           ),
           Expanded(
-            flex: 5,
+            flex: 10,
             child: ScrollbarTheme(
               data: const ScrollbarThemeData(interactive: false),
               child: GridView.builder(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
                 itemCount: tools.length,
@@ -62,7 +65,7 @@ class Tools extends StatelessWidget{
                   return Tooltip(
                     message: tools[index].label,
                     child: (
-                      Icon(tools[index].icon, color: AppColors.dark_purple, size: 24.0,)
+                      Icon(tools[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
                     ),
                   );
                 } 
@@ -93,14 +96,16 @@ class Languages extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Container(
-      height: 260,
+         height: Globals.width! / Globals.height_100 + 48,
       width: double.maxFinite,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Expanded(child: Text('Languages',
+          Expanded(child: Text('Languages',
             style: TextStyle(
+              fontSize: Globals.width! / Globals.size_16,
               color: AppColors.white,
-              shadows: [
+              shadows: const [
                 BoxShadow(
                   color: AppColors.white,
                   blurRadius: 10.0,
@@ -115,11 +120,11 @@ class Languages extends StatelessWidget{
             ), 
           )),
           Expanded(
-            flex: 5,
+            flex: 10,
             child: ScrollbarTheme(
               data: const ScrollbarThemeData(interactive: false),
               child: GridView.builder(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
                 itemCount: languages.length,
@@ -127,7 +132,7 @@ class Languages extends StatelessWidget{
                   return Tooltip(
                     message: languages[index].label,
                     child: (
-                      Icon(languages[index].icon, color: AppColors.dark_purple, size: 24,)
+                      Icon(languages[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
                     ),
                   );
                 } 
@@ -156,14 +161,16 @@ class Frameworks extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Container(
-      height: 260,
+      height: Globals.width! / Globals.height_100 + 48,
       width: double.maxFinite,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Expanded(child: Text('Frameworks',
+          Expanded(child: Text('Frameworks',
             style: TextStyle(
+              fontSize: Globals.width! / Globals.size_16,
               color: AppColors.white,
-              shadows: [
+              shadows: const [
                 BoxShadow(
                   color: AppColors.white,
                   blurRadius: 10.0,
@@ -179,19 +186,19 @@ class Frameworks extends StatelessWidget{
           ),  
           ),
           Expanded(
-            flex: 5,
+            flex: 10,
             child: ScrollbarTheme(
               data: const ScrollbarThemeData(interactive: false),
               child: GridView.builder(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 5.0, mainAxisSpacing: 5.0),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0, mainAxisSpacing: 0),
                 itemCount: frameworks.length,
                 itemBuilder: (context, index){
                   return Tooltip(
                     message: frameworks[index].label,
                     child: (
-                      Icon(frameworks[index].icon, color: AppColors.dark_purple, size: 24,)
+                      Icon(frameworks[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
                     ),
                   );
                 } 

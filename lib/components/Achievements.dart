@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/globals.dart';
 
 class Achievements extends StatelessWidget{
   final List achievements = [
@@ -10,10 +11,10 @@ class Achievements extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Container(
-      child: achievements.isEmpty ?const Center(
+      child: achievements.isEmpty ?Center(
         child: Text('Nothing much to display',
                                             style: TextStyle(
-                                              fontSize: 20.0,
+                                              fontSize: Globals.width! / Globals.size_20,
                                               color: AppColors.white,
                                             ),
                                             textAlign: TextAlign.center,

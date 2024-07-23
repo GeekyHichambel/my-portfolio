@@ -92,25 +92,26 @@ class BentoGridState extends State<Bentogrid>{
                       crossAxisCellCount: 2,
                       mainAxisCellCount: 3,
                       child: BentoContainers(color: AppColors.primary_purple, index: 3,
-                      child: Padding(padding: const EdgeInsets.all(20.0),
+                      child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
                           child: notifier.section_visble == 'About' ? Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Row(
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text('What I can do?',
                                     style: TextStyle(
-                                      fontSize: 32.0,
+                                      fontSize: Globals.width! / Globals.size_32,
                                       color: AppColors.white,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
-                                  SizedBox(width: 10.0,),
+                                  SizedBox(width: Globals.width! / Globals.width_10,),
                                   Icon(Icons.engineering_rounded, color: AppColors.white,
-                                    shadows: [
+                                  size: Globals.width! /Globals.size_32,
+                                    shadows: const [
                                       Shadow(
                                       color: AppColors.white,
                                       blurRadius: 10.0,  
@@ -123,7 +124,7 @@ class BentoGridState extends State<Bentogrid>{
                                   )
                                 ],
                               ),
-                              const SizedBox(height: 40.0,),
+                              SizedBox(height: Globals.width! / Globals.size_12,),
                               SkiilList(),
                             ]
                           )
@@ -137,21 +138,21 @@ class BentoGridState extends State<Bentogrid>{
                       child: BentoContainers(
                         color: AppColors.secondary_purple,
                         index: 1,
-                        child: Padding(padding: const EdgeInsets.all(20.0),
+                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
                           child: notifier.section_visble == 'About' ? Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text('Top Projects',
+                                  Text('Top Projects',
                                     style: TextStyle(
-                                      fontSize: 32.0,
+                                      fontSize: Globals.width! / Globals.size_32,
                                       color: AppColors.white,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
-                                  const SizedBox(width: 10.0,),
+                                  SizedBox(width: Globals.width! / Globals.width_10,),
                                   const Icon(LineAwesome.project_diagram_solid, color: AppColors.white,).animate(
                                     effects: [
                                       const ShakeEffect(
@@ -166,7 +167,7 @@ class BentoGridState extends State<Bentogrid>{
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 20.0,),
+                              SizedBox(height: Globals.height! / Globals.height_20,),
                               const Spacer(),
                               Projects(),
                               const Spacer(),
@@ -179,7 +180,7 @@ class BentoGridState extends State<Bentogrid>{
                       crossAxisCellCount: 2,
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.tertiary_purple,index: 2,
-                        child: Padding(padding: const EdgeInsets.all(20.0),
+                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
                           child: notifier.section_visble == 'About' ? Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +188,7 @@ class BentoGridState extends State<Bentogrid>{
                             children: [
                               Expanded(
                                 child: ClipRect(
-                                  child:const Column(
+                                  child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -196,14 +197,14 @@ class BentoGridState extends State<Bentogrid>{
                                         quarterTurns: 3,
                                         child: Text('My Achievements',
                                           style: TextStyle(
-                                            fontSize: 32.0,
+                                            fontSize: Globals.width! / Globals.size_32,
                                             color: AppColors.white,
                                           ),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
-                                      Icon(IonIcons.trophy, color: AppColors.white,)
+                                      SizedBox(height: Globals.width! / Globals.width_5,),
+                                      Expanded(child: Icon(IonIcons.trophy, color: AppColors.white, size: Globals.width! / Globals.size_24,))
                                     ],
                                   ).animate(
                                     onComplete: (_) => _.repeat(),
@@ -230,7 +231,7 @@ class BentoGridState extends State<Bentogrid>{
                       child: BentoContainers(color: AppColors.tertiary_purple,
                           index: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(Globals.width! / Globals.size_20),
                             child: notifier.section_visble == 'About' ? ScrollbarTheme(
                               data: ScrollbarThemeData(
                                 thumbVisibility: WidgetStateProperty.all(false),
@@ -246,7 +247,7 @@ class BentoGridState extends State<Bentogrid>{
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
-                                      height: 300,
+                                      height: Globals.width! / Globals.width_300,
                                       width: double.infinity,
                                       child: CircleAvatar(
                                         radius: 50.0,
@@ -262,22 +263,22 @@ class BentoGridState extends State<Bentogrid>{
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 50,),
+                                    SizedBox(height: Globals.width! / Globals.width_40,),
                                     Center(
                                       child: SizedBox(
-                                        height: 100,
+                                        height: Globals.width! / Globals.width_80,
                                         width: double.infinity,
                                         child: TypeWriter.text(
                                           'Myself Parth Vij,\nI am a CSE student.',
                                           repeat: repeat,
                                           enabled: enabled,
-                                          style: const TextStyle(color: AppColors.white, fontSize: 32),
+                                          style: TextStyle(color: AppColors.white, fontSize: Globals.width! / Globals.size_32),
                                           textAlign: TextAlign.center,
                                           duration: const Duration(milliseconds: 100),
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 30,),
+                                    SizedBox(height: Globals.width! / Globals.width_30,),
                                     MouseRegion(
                                       onHover: (_) => notifier.set_know_more(true),
                                       onExit: (_) => notifier.set_know_more(false),
@@ -286,14 +287,14 @@ class BentoGridState extends State<Bentogrid>{
                                         onTap: scrollDown,
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             const Icon(Bootstrap.three_dots, color: AppColors.white),
-                                            const SizedBox(width: 10.0),
+                                            SizedBox(width: Globals.width! / Globals.width_10),
                                             Text(
                                               'Know More',
                                               style: TextStyle(
-                                                fontSize: 16.0,
+                                                fontSize: Globals.width! / Globals.size_16,
                                                 color: AppColors.white,
                                                 shadows: notifier.know_more
                                                     ? [
@@ -313,11 +314,11 @@ class BentoGridState extends State<Bentogrid>{
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 500,
+                                    SizedBox(height: Globals.width! / Globals.width_500,
                                       child: Center(
                                         child: Text('Bro, just scroll up, don\'t get personal.',
                                         style: TextStyle(
-                                                fontSize: 16.0,
+                                                fontSize: Globals.width! / Globals.size_16,
                                                 color: AppColors.white,)
                                         ),
                                       ),
@@ -333,11 +334,11 @@ class BentoGridState extends State<Bentogrid>{
                                           crossAxisAlignment: CrossAxisAlignment.end,
                                           children: [
                                             const Icon(Bootstrap.arrow_90deg_up, color: AppColors.white),
-                                            const SizedBox(width: 10.0),
+                                            SizedBox(width: Globals.width! / Globals.width_10),
                                             Text(
                                               'Know Less',
                                               style: TextStyle(
-                                                fontSize: 16.0,
+                                                fontSize: Globals.width! / Globals.size_16,
                                                 color: AppColors.white,
                                                 shadows: notifier.collapse
                                                     ? [
@@ -380,22 +381,22 @@ class BentoGridState extends State<Bentogrid>{
                       crossAxisCellCount: 4,
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.secondary_purple, index: 5,
-                        child:Padding(padding: const EdgeInsets.all(20.0),
+                        child:Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
                           child: notifier.section_visble == 'About' ? Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text('My Skills',
+                                  Text('My Skills',
                                     style: TextStyle(
-                                      fontSize: 32.0,
+                                      fontSize: Globals.width! / Globals.size_32,
                                       color: AppColors.white,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
-                                  const SizedBox(width: 10.0,),
-                                  const Icon(Bootstrap.gear_wide, color: AppColors.white,).animate(
+                                  SizedBox(width: Globals.width! / Globals.width_10,),
+                                  Icon(Bootstrap.gear_wide, color: AppColors.white, size: Globals.width! / Globals.size_24,).animate(
                                     effects: [
                                       const RotateEffect(
                                         duration: Duration(seconds: 2),
@@ -409,26 +410,14 @@ class BentoGridState extends State<Bentogrid>{
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 20.0,),
+                              SizedBox(height: Globals.width! / Globals.size_16,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Expanded(child: Languages()),
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 68.0),
-                                    height: 200,
-                                    width: 0.5,
-                                    color: AppColors.diffWhite,
-                                  ),
-                                  Expanded(child: Frameworks()),
-                                  Container(
-                                    margin: const EdgeInsets.only(top: 68.0),
-                                    height: 200,
-                                    width: 0.5,
-                                    color: AppColors.diffWhite,
-                                  ),
-                                  Expanded(child: Tools()),
+                                  Expanded(flex: 1,child: Languages()),
+                                  Expanded(flex: 1, child: Frameworks()),
+                                  Expanded(flex: 1, child: Tools()),
                                 ],
                               )
                             ],
@@ -440,50 +429,54 @@ class BentoGridState extends State<Bentogrid>{
                       crossAxisCellCount: 2,
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.primary_purple, index: 6,
-                      child: Padding(padding: const EdgeInsets.all(20.0),
-                        child: notifier.section_visble == 'About' ? Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('Get in Touch',
-                                  style: TextStyle(
-                                    fontSize: 32.0,
-                                    color: AppColors.white,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                SizedBox(width: 10.0,),
-                                Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
-                                  shadows: [
-                                    Shadow(
+                      child: ClipRect(
+                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                          child: notifier.section_visble == 'About' ? Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('Get in Touch',
+                                    style: TextStyle(
+                                      fontSize: Globals.width! / Globals.size_32,
                                       color: AppColors.white,
-                                      blurRadius: 10.0,  
                                     ),
-                                     Shadow(
-                                      color: AppColors.white,
-                                      blurRadius: 10.0,  
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 40.0,),
-                            notifier.hovered_bento == 6? 
-                                  RippleAnimation(
-                                    color: AppColors.tertiary_purple,
-                                    minRadius: 60,
-                                    repeat: true,
-                                    ripplesCount: 5,
-                                    duration: const Duration(seconds: 2),
-                                    child: ContactInfo()
-                                  ) : ContactInfo()
-                          ],
-                        ) : const SizedBox.shrink(),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(width: Globals.width! / Globals.width_10,),
+                                  Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
+                                    size: Globals.width! / Globals.size_24,
+                                    shadows: const [
+                                      Shadow(
+                                        color: AppColors.white,
+                                        blurRadius: 10.0,  
+                                      ),
+                                       Shadow(
+                                        color: AppColors.white,
+                                        blurRadius: 10.0,  
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: Globals.width! / Globals.size_16,),
+                              notifier.hovered_bento == 6? 
+                                    RippleAnimation(
+                                      color: AppColors.tertiary_purple,
+                                      minRadius: 60,
+                                      repeat: true,
+                                      ripplesCount: 5,
+                                      duration: const Duration(seconds: 2),
+                                      child: ContactInfo()
+                                    ) : ContactInfo()
+                            ],
+                          ) : const SizedBox.shrink(),
+                        ),
                       )
                       ),
                       ),
