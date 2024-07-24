@@ -60,10 +60,11 @@ class BentoGridState extends State<Bentogrid>{
         if (_.visibleFraction > 0.1){
           notifier.set_section_visible('About');
         }else{
-          notifier.set_section_visible('');
+          notifier.remove_section('About');
         }
+        print(notifier.section_visble);
       },
-      child: ClipRect(
+      child:  ClipRect(
         child: MovingBackground(
           animationType: AnimationType.translation,
           backgroundColor: AppColors.diffWhite,
@@ -93,7 +94,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 3,
                       child: BentoContainers(color: AppColors.primary_purple, index: 3,
                       child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? Column(
+                          child: notifier.section_visble.contains('About') ? Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -139,7 +140,7 @@ class BentoGridState extends State<Bentogrid>{
                         color: AppColors.secondary_purple,
                         index: 1,
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? Column(
+                          child: notifier.section_visble.contains('About') ? Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -181,7 +182,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.tertiary_purple,index: 2,
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? Row(
+                          child: notifier.section_visble.contains('About') ? Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,7 +233,7 @@ class BentoGridState extends State<Bentogrid>{
                           index: 4,
                           child: Padding(
                             padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                            child: notifier.section_visble == 'About' ? ScrollbarTheme(
+                            child:  notifier.section_visble.contains('About') ? ScrollbarTheme(
                               data: ScrollbarThemeData(
                                 thumbVisibility: WidgetStateProperty.all(false),
                                 trackVisibility: WidgetStateProperty.all(false),
@@ -382,7 +383,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.secondary_purple, index: 5,
                         child:Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? Column(
+                          child:  notifier.section_visble.contains('About') ? Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -431,7 +432,7 @@ class BentoGridState extends State<Bentogrid>{
                       child: BentoContainers(color: AppColors.primary_purple, index: 6,
                       child: ClipRect(
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble == 'About' ? notifier.hovered_bento == 6 ? RippleAnimation(
+                          child:  notifier.section_visble.contains('About') ? notifier.hovered_bento == 6 ? RippleAnimation(
                             color: AppColors.tertiary_purple,
                                       minRadius: 60,
                                       repeat: true,

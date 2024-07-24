@@ -8,14 +8,14 @@ class Config with ChangeNotifier{
   int _visible_project = 0;
   bool _know_more = false;
   bool _collapse = false;
-  String _section_visible = '';
+  List<String> _section_visible = [];
 
   int get hovered_nav => _hovered_nav;
   int get hovered_bento => _hovered_bento;
   int get hovered_footer_icon => _hovered_footer_icon;
   int get hovered_skill => _hovered_skill;
   int get visible_project => _visible_project;
-  String get section_visble => _section_visible;
+  List<String> get section_visble => _section_visible;
   bool get know_more => _know_more;
   bool get collapse => _collapse;
 
@@ -55,7 +55,13 @@ class Config with ChangeNotifier{
   }
 
    void set_section_visible(String sec){
-    _section_visible = sec;
+    if (_section_visible.contains(sec)) return;
+    _section_visible.add(sec);
+    notifyListeners();
+  } 
+
+   void remove_section(String sec){
+    _section_visible.remove(sec);
     notifyListeners();
   } 
 }

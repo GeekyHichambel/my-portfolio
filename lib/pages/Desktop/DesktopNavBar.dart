@@ -39,14 +39,14 @@ class DesktopNavBar extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text('Parth Vij', style: TextStyle(fontSize: 20, color: AppColors.black), textAlign: TextAlign.center,),
-          const Spacer(),
+          const Spacer(flex: 5,),
           Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [for (List link in links) NavigationText(link[0], links.indexOf(link), position: link[1], controller: controller,),]
           ),
-          const Spacer(flex: 1,)
+          const Spacer(flex: 6,)
         ],
       ),
     );
