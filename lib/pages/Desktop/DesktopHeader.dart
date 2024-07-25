@@ -47,6 +47,7 @@ class DesktopHeader extends StatelessWidget{
                                     style: TextStyle(
                           color: AppColors.diffWhite,
                           fontWeight: FontWeight.w500,
+                          fontFamily: Globals.sysFont,
                           fontSize: Globals.width! / Globals.size_32 * 6,
                                     ),
                                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Globals{
 
+static const String sysFont = 'CsDamon'; 
 static ScrollController scrollController = ScrollController();
 static double? width;
 static double? height; 
@@ -17,6 +18,7 @@ static const double width_10 = 168;
 static const double width_30 = 56;
 static const double width_40 = 42;
 static const double width_80 = 21;
+static const double width_100 = 16.8;
 static const double width_200 = 8.4;
 static const double width_300 = 5.6;
 static const double width_350 = 4.8;

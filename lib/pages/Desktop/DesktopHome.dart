@@ -15,7 +15,7 @@ class DesktopHome extends StatelessWidget{
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.white,
-      appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.width! / Globals.height_30), child: DesktopNavBar(controller: Globals.scrollController)),
+      appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.width! / Globals.height_40), child: DesktopNavBar(controller: Globals.scrollController)),
       body: SingleChildScrollView(
         controller: Globals.scrollController,
         child: Column(

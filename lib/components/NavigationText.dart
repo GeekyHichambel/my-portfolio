@@ -23,7 +23,7 @@ class NavigationText extends StatelessWidget{
     Config notifier = Provider.of<Config>(context);
     return Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   children: notifier.section_visble.last != text ?  [
                     MouseRegion(
             cursor: SystemMouseCursors.click,
@@ -36,7 +36,7 @@ class NavigationText extends StatelessWidget{
             child: GestureDetector(
               onTap: () => scrollTo(position!),
               child: Container(
-                margin: EdgeInsets.all(Globals.width! / Globals.width_10),
+                margin: EdgeInsets.symmetric(horizontal: Globals.width! / Globals.width_10),
                 child: Text(
                       text,
                       style: TextStyle(
@@ -56,7 +56,7 @@ class NavigationText extends StatelessWidget{
             child: GestureDetector(
               onTap: () => scrollTo(position!),
               child: Container(
-                margin: EdgeInsets.all(Globals.width! / Globals.width_10),
+                margin: EdgeInsets.symmetric(horizontal: Globals.width! / Globals.width_10),
                 child: Text(
                       text,
                       style: TextStyle(
@@ -65,8 +65,8 @@ class NavigationText extends StatelessWidget{
                       ),
                     ),))),
                     Container( 
-                      width: Globals.width! / Globals.size_12,
-                      height: Globals.width! / Globals.size_12,
+                      width: Globals.width! / Globals.size_16,
+                      height: Globals.width! / Globals.size_16,
                       decoration: BoxDecoration(
                         color:const Color.fromARGB(255, 226, 154, 255),
                         borderRadius: BorderRadius.circular(16.0)

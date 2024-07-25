@@ -32,24 +32,32 @@ class DesktopNavBar extends StatelessWidget{
           decoration: BoxDecoration(color: AppColors.white.withOpacity(0.45)),
         ),
         ),),
-      titleSpacing: 100.0,
+      titleSpacing: Globals.width! / Globals.width_100,
       centerTitle: true,   
-      title: Row(
+      title: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text('Parth Vij', style: TextStyle(fontSize: Globals.width! / Globals.size_24, color: AppColors.black), textAlign: TextAlign.center,),
-          const Spacer(flex: 5,),
+          SizedBox(height: Globals.width! / Globals.width_30,),
           Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [for (List link in links) NavigationText(link[0], links.indexOf(link), position: link[1], controller: controller,),]
+            children: [
+              Text('Parth Vij', style: TextStyle(fontSize: Globals.width! / Globals.size_32 * 1.2, color: AppColors.black, fontFamily: Globals.sysFont, letterSpacing: Globals.width! / Globals.width_5), textAlign: TextAlign.center,),
+              const Spacer(flex: 5,),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [for (List link in links) NavigationText(link[0], links.indexOf(link), position: link[1], controller: controller,),]
+              ),
+              const Spacer(flex: 6,)
+            ],
           ),
-          const Spacer(flex: 6,)
+          SizedBox(height: Globals.width! / Globals.width_30,),
         ],
-      ),
+        ),
     );
   }
 }
