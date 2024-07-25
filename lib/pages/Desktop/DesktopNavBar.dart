@@ -38,13 +38,13 @@ class DesktopNavBar extends StatelessWidget{
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: Globals.width! / Globals.width_30,),
+          SizedBox(height: Globals.width! / Globals.width_40,),
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Parth Vij', style: TextStyle(fontSize: Globals.width! / Globals.size_32 * 1.2, color: AppColors.black, fontFamily: Globals.sysFont, letterSpacing: Globals.width! / Globals.width_5), textAlign: TextAlign.center,),
+              Text('Parth Vij', style: TextStyle(fontSize: Globals.width! / Globals.size_32 * 1.2, color: AppColors.tertiary_purple, fontFamily: Globals.sysFont, letterSpacing: Globals.width! / Globals.width_5), textAlign: TextAlign.center,),
               const Spacer(flex: 5,),
               Row(
                 mainAxisSize: MainAxisSize.min,
