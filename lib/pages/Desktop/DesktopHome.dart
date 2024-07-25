@@ -7,22 +7,21 @@ class DesktopHome extends StatelessWidget{
   final Widget? header;
   final  Widget? body;
   final Widget? footer;
-  final ScrollController controller = ScrollController();
 
-  DesktopHome({this.header, this.body, this.footer, super.key});
+  const DesktopHome({this.header, this.body, this.footer, super.key});
 
   @override
   Widget build(BuildContext context){
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.white,
-      appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.height! / Globals.height_50), child: DesktopNavBar(controller: controller)),
+      appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.width! / Globals.height_30), child: DesktopNavBar(controller: Globals.scrollController)),
       body: SingleChildScrollView(
-        controller: controller,
+        controller: Globals.scrollController,
         child: Column(
           children: [
             const SizedBox(height: Globals.SectionSpacing,),
-            header?? const SizedBox.shrink(),
+            header ?? const SizedBox.shrink(),
             const SizedBox(height: Globals.SectionSpacing,),
             body?? const SizedBox.shrink(),
             const SizedBox(height: Globals.SectionSpacing,),

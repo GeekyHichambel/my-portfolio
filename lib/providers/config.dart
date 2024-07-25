@@ -1,3 +1,5 @@
+import 'dart:core' as c;
+import 'dart:core';
 import 'package:flutter/material.dart';
 
 class Config with ChangeNotifier{
@@ -9,6 +11,7 @@ class Config with ChangeNotifier{
   bool _know_more = false;
   bool _collapse = false;
   List<String> _section_visible = [];
+  c.Set<String> _sections_visted = c.Set();
 
   int get hovered_nav => _hovered_nav;
   int get hovered_bento => _hovered_bento;
@@ -18,6 +21,7 @@ class Config with ChangeNotifier{
   List<String> get section_visble => _section_visible;
   bool get know_more => _know_more;
   bool get collapse => _collapse;
+  c.Set<String> get sections_visited => _sections_visted;
 
   void set_visible_project(int v){
     _visible_project = v;
@@ -64,4 +68,8 @@ class Config with ChangeNotifier{
     _section_visible.remove(sec);
     notifyListeners();
   } 
+
+  void set_visited(String sec){
+    _sections_visted.add(sec);
+  }
 }

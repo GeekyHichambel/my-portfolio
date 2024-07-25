@@ -59,10 +59,12 @@ class BentoGridState extends State<Bentogrid>{
       onVisibilityChanged: (_) {
         if (_.visibleFraction > 0.1){
           notifier.set_section_visible('About');
+          notifier.set_visited('About');
         }else{
           notifier.remove_section('About');
         }
         print(notifier.section_visble);
+        print(notifier.sections_visited);
       },
       child:  ClipRect(
         child: MovingBackground(
@@ -77,7 +79,7 @@ class BentoGridState extends State<Bentogrid>{
             MovingCircle(color: AppColors.secondary_purple),
           ],
           child: Container(
-                width: double.maxFinite,
+                width: Globals.width,
                 padding: const EdgeInsets.all(Globals.Padding),
                 child: StaggeredGrid.count(
                   crossAxisCount: 8,
@@ -94,7 +96,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 3,
                       child: BentoContainers(color: AppColors.primary_purple, index: 3,
                       child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble.contains('About') ? Column(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -129,7 +131,6 @@ class BentoGridState extends State<Bentogrid>{
                               SkiilList(),
                             ]
                           )
-                          : const SizedBox.shrink()
                         ),
                       ),
                       ),
@@ -140,7 +141,7 @@ class BentoGridState extends State<Bentogrid>{
                         color: AppColors.secondary_purple,
                         index: 1,
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble.contains('About') ? Column(
+                          child: Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -173,7 +174,7 @@ class BentoGridState extends State<Bentogrid>{
                               Projects(),
                               const Spacer(),
                             ],
-                          ) : const SizedBox.shrink(),
+                          )
                         )
                         ),
                       ),
@@ -182,7 +183,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.tertiary_purple,index: 2,
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: notifier.section_visble.contains('About') ? Row(
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,7 +223,7 @@ class BentoGridState extends State<Bentogrid>{
                               ),
                               Expanded(flex: 3, child: Achievements()),
                             ],
-                          ): const SizedBox.shrink(),
+                          )
                         ),
                       ),
                       ),
@@ -233,7 +234,7 @@ class BentoGridState extends State<Bentogrid>{
                           index: 4,
                           child: Padding(
                             padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                            child:  notifier.section_visble.contains('About') ? ScrollbarTheme(
+                            child:  ScrollbarTheme(
                               data: ScrollbarThemeData(
                                 thumbVisibility: WidgetStateProperty.all(false),
                                 trackVisibility: WidgetStateProperty.all(false),
@@ -362,19 +363,7 @@ class BentoGridState extends State<Bentogrid>{
                                   ],
                                 ),
                               ),
-                            ) : CircleAvatar(
-                              radius: 50.0,
-                              backgroundColor: AppColors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(200.0),
-                                  child: Image.asset(
-                                          'assets/myPic.jpg',
-                                        ),
-                                ),
-                              ),
-                            ),
+                            )
                           ),
                         ),
                       ),
@@ -383,7 +372,7 @@ class BentoGridState extends State<Bentogrid>{
                       mainAxisCellCount: 2,
                       child: BentoContainers(color: AppColors.secondary_purple, index: 5,
                         child:Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child:  notifier.section_visble.contains('About') ? Column(
+                          child:  Column(
                             children: [
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -422,7 +411,7 @@ class BentoGridState extends State<Bentogrid>{
                                 ],
                               )
                             ],
-                          ) : const SizedBox.shrink(),
+                          )
                         ),
                       ),
                       ),
@@ -432,7 +421,7 @@ class BentoGridState extends State<Bentogrid>{
                       child: BentoContainers(color: AppColors.primary_purple, index: 6,
                       child: ClipRect(
                         child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child:  notifier.section_visble.contains('About') ? notifier.hovered_bento == 6 ? RippleAnimation(
+                          child:  notifier.hovered_bento == 6 ? RippleAnimation(
                             color: AppColors.tertiary_purple,
                                       minRadius: 60,
                                       repeat: true,
@@ -511,7 +500,7 @@ class BentoGridState extends State<Bentogrid>{
                                 SizedBox(height: Globals.width! / Globals.size_16,),
                                 ContactInfo()
                               ],
-                            ) : const SizedBox.shrink(),
+                            )
                         ),
                       )
                       ),

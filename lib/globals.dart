@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Globals{
 
+static ScrollController scrollController = ScrollController();
 static double? width;
 static double? height; 
 static const SectionSpacing = 50.0;
@@ -37,8 +38,10 @@ static dynamic checkPlatform(BuildContext context){
   width = MediaQuery.of(context).size.width;
   height = MediaQuery.of(context).size.height;
   print(width);
-  if (width! < 800){
+  if (width! < 450){
     return 'Mobile';
+  }else if (width! >= 450 && width! < 800){
+    return 'Tablet';
   }
   return 'Desktop';
 }
