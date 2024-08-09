@@ -16,13 +16,13 @@ class Project {
 }
 
 class Projects extends StatefulWidget {
-  Projects({Key? key}) : super(key: key);
+  const Projects({super.key});
 
   @override
-  _ProjectsState createState() => _ProjectsState();
+  ProjectsState createState() => ProjectsState();
 }
 
-class _ProjectsState extends State<Projects> {
+class ProjectsState extends State<Projects> {
   late PageController controller;
   late List<Project> projects;
   late Timer timer;

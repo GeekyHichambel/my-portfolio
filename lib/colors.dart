@@ -8,4 +8,5 @@ class AppColors{
   static const primary_purple = Color(0xFF3E065F);
   static const secondary_purple = Color(0xFF700B97);
   static const tertiary_purple = Color(0xFF8E05C2);  
+  static const magical_pink = Color(0xFFE29AFF);
 }

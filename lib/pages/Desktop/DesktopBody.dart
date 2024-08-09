@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/BentoGrid.dart';
+import 'package:my_portfolio/components/ProjectView.dart';
+import 'package:my_portfolio/components/Review.dart';
 
 class DesktopBody extends StatelessWidget{
   const DesktopBody({super.key});
@@ -7,12 +9,11 @@ class DesktopBody extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const Bentogrid(),
-        Container(
-
-        )
+        Bentogrid(),
+        ProjectView(),
+        ReveiwShowcase(),
       ],
     );
   }

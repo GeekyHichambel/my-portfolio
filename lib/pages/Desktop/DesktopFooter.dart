@@ -15,7 +15,7 @@ class DesktopFooter extends StatelessWidget{
     return VisibilityDetector(
       key: const Key('Contact'),
       onVisibilityChanged: (_){
-        if (_.visibleFraction > 0.1){
+        if (_.visibleFraction > 0.25){
          notifier.set_section_visible('Contact');
          notifier.set_visited('Contact');
         }else{
@@ -23,18 +23,20 @@ class DesktopFooter extends StatelessWidget{
         }
          },
       child: BottomAppBar(
+        height: Globals.width! / Globals.width_80,
         color: AppColors.primary_purple,
         padding: const EdgeInsets.symmetric(horizontal: Globals.Padding,),
         elevation: 0,
         child: SizedBox(
           width: double.infinity,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children:[ 
               Contacts(),
               const Spacer(),
-              const Text('©️ Parth Vij 2024. All rights reserved', style: TextStyle(fontSize: 12, color: AppColors.diffWhite), textAlign: TextAlign.center,), 
+              Text('©️ Parth Vij 2024. All rights reserved', style: TextStyle(fontSize: Globals.width! / Globals.size_16, color: AppColors.diffWhite), textAlign: TextAlign.center,), 
               const Spacer(),
             ]
           ),

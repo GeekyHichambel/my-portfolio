@@ -15,9 +15,9 @@ class DesktopNavBar extends StatelessWidget{
     List links = [
       ['Home', 0],
       ['About', Globals.height! + 50],
-      ['Projects', 0],
-      ['Reviews', 0],
-      ['Contact', 1600],
+      ['Projects', Globals.height! * 2 + 180],
+      ['Reviews', Globals.height! * 3 ],
+      ['Contact', Globals.height! * 4],
     ];
 
     return AppBar(

@@ -25,7 +25,7 @@ class DesktopHeader extends StatelessWidget{
       child: VisibilityDetector(
           key: const Key('Home'),
       onVisibilityChanged: (_) {
-        if (_.visibleFraction > 0.1){
+        if (_.visibleFraction > 0.25){
           notifier.set_section_visible('Home');
           notifier.set_visited('Home');
         }else{

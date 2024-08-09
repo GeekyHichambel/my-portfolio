@@ -8,6 +8,8 @@ class Config with ChangeNotifier{
   int _hovered_footer_icon = -1;
   int _hovered_skill = -1;
   int _visible_project = 0;
+  int _visible_review = 0;
+  int _selected_project = 0;
   bool _know_more = false;
   bool _collapse = false;
   List<String> _section_visible = [];
@@ -18,13 +20,25 @@ class Config with ChangeNotifier{
   int get hovered_footer_icon => _hovered_footer_icon;
   int get hovered_skill => _hovered_skill;
   int get visible_project => _visible_project;
+  int get visible_review => _visible_review;
+  int get selected_project => _selected_project;
   List<String> get section_visble => _section_visible;
   bool get know_more => _know_more;
   bool get collapse => _collapse;
   c.Set<String> get sections_visited => _sections_visted;
 
+  void set_selected_project(int p){
+    _selected_project = p;
+    notifyListeners();
+  }
+
   void set_visible_project(int v){
     _visible_project = v;
+    notifyListeners();
+  }
+
+   void set_visible_review(int v){
+    _visible_review = v;
     notifyListeners();
   }
 

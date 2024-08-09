@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/globals.dart';
 import 'package:my_portfolio/providers/config.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -26,7 +27,7 @@ class Contacts extends StatelessWidget{
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         for (var icon in icons) Container(
-          margin: const EdgeInsets.all(10.0),
+          margin: EdgeInsets.all(Globals.width! / Globals.width_10),
           child: MouseRegion(
             onHover: (_) {notifier.set_hovered_footer(icons.indexOf(icon)); updatePanelStatus(icon[1]);},
             onExit: (_) {notifier.set_hovered_footer(-1); clearPanelStatus();},
@@ -42,7 +43,7 @@ class Contacts extends StatelessWidget{
                     debugPrint('Could not launch $url');
                   }
                 },
-                child: Icon(icon[0], color: AppColors.diffWhite, shadows: notifier.hovered_footer_icon == icons.indexOf(icon)  ? [
+                child: Icon(icon[0], color: AppColors.diffWhite, size: Globals.width! / Globals.size_24,shadows: notifier.hovered_footer_icon == icons.indexOf(icon)  ? [
                   const BoxShadow(
                     color: AppColors.white,
                     blurRadius: 20.0,

@@ -57,7 +57,7 @@ class BentoGridState extends State<Bentogrid>{
     return VisibilityDetector(
       key: const Key('About'),
       onVisibilityChanged: (_) {
-        if (_.visibleFraction > 0.1){
+        if (_.visibleFraction > 0.25){
           notifier.set_section_visible('About');
           notifier.set_visited('About');
         }else{
