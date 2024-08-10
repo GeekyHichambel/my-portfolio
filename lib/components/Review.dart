@@ -29,7 +29,7 @@ class ReveiwShowcase extends StatefulWidget{
 class ReveiwShowcaseState extends State<ReveiwShowcase>{
   List<Review> reviews = [
     Review('Sam', 'Good Work!', true),
-    Review('Diana', 'Upcoming talent! Awesome desgins', false)
+    Review('Diana', 'Upcoming talent! Awesome designs', false)
   ];
 
   late final PageController pageController;
