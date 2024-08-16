@@ -24,7 +24,6 @@ class DesktopHome extends StatelessWidget{
             header ?? const SizedBox.shrink(),
             const SizedBox(height: Globals.SectionSpacing,),
             body?? const SizedBox.shrink(),
-            const SizedBox(height: Globals.SectionSpacing,),
             footer?? const SizedBox.shrink(),
           ],
         )

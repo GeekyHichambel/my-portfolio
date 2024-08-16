@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -24,6 +25,9 @@ class ProjectViewState extends State<ProjectView> with TickerProviderStateMixin{
     List<CarouselItem> carouselItems = [
     CarouselItem(title: 'Pawfect Tasks', about: 'A gamified To-Do list with virtual pets which maximises your productiveness.', tech: [BoxIcons.bxl_flutter, BoxIcons.bxl_python, BoxIcons.bxl_firebase], image: Image.asset('assets/logo_bg.png', fit: BoxFit.fill,)),
     CarouselItem(title: 'Space Mobster', about: 'A 2-d space game with endless fun.', tech: [BoxIcons.bxl_python], image: Image.asset('assets/space_mobster.jpg', fit: BoxFit.fill,)),
+    CarouselItem(title: 'Crypto Pilot', about: 'A Web-3 crypto wallet for safeguarding your assets and seamless transactions.', tech: [BoxIcons.bxl_java, BoxIcons.bxl_android, BoxIcons.bxl_bitcoin], image: Image.asset('assets/ic_launch-playstore.png', fit: BoxFit.fill,)),
+    CarouselItem(title: 'Peelo Paani', about: 'A mobile app that actively tracks your water consumptiion.', tech: [BoxIcons.bxl_flutter, BoxIcons.bxl_android, BoxIcons.bxl_redux], image: Image.asset('assets/peelo_paani.png', fit: BoxFit.fill,)),
+    CarouselItem(title: 'Robs & Cops', about: 'A 2-d game where you play as a robber in a pacman verse.', tech: [BoxIcons.bxl_python, BoxIcons.bx_game], image: Image.asset('assets/safe.png', fit: BoxFit.fill,)),
   ];
 
   PageController pageController = PageController();
@@ -78,7 +82,7 @@ class ProjectViewState extends State<ProjectView> with TickerProviderStateMixin{
                         changed = true;
                       });
                     },
-                    type: StackedCardCarouselType.fadeOutStack,
+                    type: StackedCardCarouselType.cardsStack,
                     items: [
                           for (var carousel in carouselItems) Carousel(item: carousel, index: carouselItems.indexOf(carousel),)
                         ]),
@@ -86,10 +90,13 @@ class ProjectViewState extends State<ProjectView> with TickerProviderStateMixin{
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    child: IconButton(
-                      onPressed: (){
-                              pageController.animateTo(pageController.initialScrollOffset, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                            }, icon: Icon(Iconsax.arrow_up_1_outline, color: AppColors.dark_purple, size: Globals.width! / Globals.size_32,)),
+                    child: Padding(
+                      padding:EdgeInsets.symmetric(horizontal: Globals.width! / Globals.width_300),
+                      child: IconButton(
+                        onPressed: (){
+                                pageController.animateTo(pageController.initialScrollOffset, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                              }, icon: Icon(Iconsax.arrow_up_1_outline, color: AppColors.dark_purple, size: Globals.width! / Globals.size_32,)),
+                    ),
                   )
                 ],
               ),
@@ -125,15 +132,22 @@ class ProjectViewState extends State<ProjectView> with TickerProviderStateMixin{
                                           changed = false;
                                         }) : _.repeat()
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: Globals.width! / Globals.width_100 * 1.7, vertical: Globals.width! / Globals.width_80),
-                        child: Text(
-                          carouselItems[notifier.selected_project].about ?? '',
-                          style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: Globals.width! / Globals.size_16,
+                      Positioned(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: Globals.width! / Globals.width_100 * 1.7,
+                            right: Globals.width! / Globals.width_100 * 1.7,
+                             top: Globals.width! / Globals.width_10*5,
+                             bottom: 0.0,
+                             ),
+                          child: Text(
+                            carouselItems[notifier.selected_project].about ?? '',
+                            style: TextStyle(
+                              color: AppColors.white,
+                              fontSize: Globals.width! / Globals.size_16,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -164,17 +178,24 @@ class ProjectViewState extends State<ProjectView> with TickerProviderStateMixin{
                                         }) : _.repeat()
                                         // controller: controller,
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: Globals.width! / Globals.width_200, vertical: Globals.width! / Globals.width_40),
-                        child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-                          itemCount: carouselItems[notifier.selected_project].tech!.length,
-                         itemBuilder: (context, index){
-                          return Icon(
-                            carouselItems[notifier.selected_project].tech![index],
-                            color: AppColors.white,
-                            size: Globals.width! / Globals.size_20,
-                          );
-                         })
+                      Positioned(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: Globals.width! / Globals.width_200,
+                            right: Globals.width! / Globals.width_200,
+                             top: Globals.width! / Globals.width_10*3,
+                             bottom: 0.0,
+                             ),
+                          child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                            itemCount: carouselItems[notifier.selected_project].tech!.length,
+                           itemBuilder: (context, index){
+                            return Icon(
+                              carouselItems[notifier.selected_project].tech![index],
+                              color: AppColors.white,
+                              size: Globals.width! / Globals.size_20,
+                            );
+                           })
+                        ),
                       ),
                     ],
                   )),   

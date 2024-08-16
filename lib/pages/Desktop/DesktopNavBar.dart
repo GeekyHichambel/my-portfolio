@@ -17,7 +17,7 @@ class DesktopNavBar extends StatelessWidget{
       ['About', Globals.height! + 50],
       ['Projects', Globals.height! * 2 + 180],
       ['Reviews', Globals.height! * 3 ],
-      ['Contact', Globals.height! * 4],
+      ['Contact', Globals.height! * 10],
     ];
 
     return AppBar(

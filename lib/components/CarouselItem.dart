@@ -43,6 +43,7 @@ class Carousel extends StatelessWidget{
           shadowColor: Colors.transparent,
           child: Container(
             padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+            margin: EdgeInsets.all(Globals.width! / Globals.size_20),
             height: Globals.width! / Globals.height_300,
             decoration: BoxDecoration(boxShadow: const [
               BoxShadow(

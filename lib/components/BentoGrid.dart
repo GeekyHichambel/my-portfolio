@@ -81,432 +81,438 @@ class BentoGridState extends State<Bentogrid>{
           child: Container(
                 width: Globals.width,
                 padding: const EdgeInsets.all(Globals.Padding),
-                child: StaggeredGrid.count(
-                  crossAxisCount: 8,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const StaggeredGridTile.count(
-                      crossAxisCellCount: 4,
-                      mainAxisCellCount: 1,
-                      child: SizedBox.shrink(),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 3,
-                      child: BentoContainers(color: AppColors.primary_purple, index: 3,
-                      child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
+                    StaggeredGrid.count(
+                      crossAxisCount: 8,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                      children: [
+                        const StaggeredGridTile.count(
+                          crossAxisCellCount: 4,
+                          mainAxisCellCount: 1,
+                          child: SizedBox.shrink(),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 2,
+                          mainAxisCellCount: 3,
+                          child: BentoContainers(color: AppColors.primary_purple, index: 3,
+                          child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('What I can do?',
+                                        style: TextStyle(
+                                          fontSize: Globals.width! / Globals.size_32,
+                                          color: AppColors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(width: Globals.width! / Globals.width_10,),
+                                      Icon(Icons.engineering_rounded, color: AppColors.white,
+                                      size: Globals.width! /Globals.size_32,
+                                        shadows: const [
+                                          Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        ),
+                                         Shadow(
+                                          color: AppColors.white,
+                                          blurRadius: 10.0,  
+                                        )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: Globals.width! / Globals.size_12,),
+                                  SkiilList(),
+                                ]
+                              )
+                            ),
+                          ),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 2,
+                          mainAxisCellCount: 2,
+                          child: BentoContainers(
+                            color: AppColors.secondary_purple,
+                            index: 1,
+                            child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('Top Projects',
+                                        style: TextStyle(
+                                          fontSize: Globals.width! / Globals.size_32,
+                                          color: AppColors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(width: Globals.width! / Globals.width_10,),
+                                      const Icon(LineAwesome.project_diagram_solid, color: AppColors.white,).animate(
+                                        effects: [
+                                          const ShakeEffect(
+                                            duration: Duration(seconds: 2),
+                                            curve: Curves.decelerate,
+                                            rotation: 2.0,
+                                            hz: 0.5,
+                                          ),
+                                        ],
+                                        autoPlay: true,
+                                        onComplete: (_) => _.repeat(),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: Globals.height! / Globals.height_20,),
+                                  const Spacer(),
+                                  Projects(),
+                                  const Spacer(),
+                                ],
+                              )
+                            )
+                            ),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 2,
+                          mainAxisCellCount: 2,
+                          child: BentoContainers(color: AppColors.tertiary_purple,index: 2,
+                            child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                              child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('What I can do?',
-                                    style: TextStyle(
-                                      fontSize: Globals.width! / Globals.size_32,
-                                      color: AppColors.white,
+                                  Expanded(
+                                    child: ClipRect(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          RotatedBox(
+                                            quarterTurns: 3,
+                                            child: Text('My Achievements',
+                                              style: TextStyle(
+                                                fontSize: Globals.width! / Globals.size_32,
+                                                color: AppColors.white,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                          SizedBox(height: Globals.width! / Globals.width_5,),
+                                          Expanded(child: Icon(IonIcons.trophy, color: AppColors.white, size: Globals.width! / Globals.size_24,))
+                                        ],
+                                      ).animate(
+                                        onComplete: (_) => _.repeat(),
+                                        effects: [
+                                          const SlideEffect(
+                                            duration: Duration(milliseconds: 3600),
+                                            curve: Curves.easeInOut,
+                                            begin: Offset(0.0, 1.0),
+                                            end: Offset(0.0, -1.0)
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
-                                  SizedBox(width: Globals.width! / Globals.width_10,),
-                                  Icon(Icons.engineering_rounded, color: AppColors.white,
-                                  size: Globals.width! /Globals.size_32,
-                                    shadows: const [
-                                      Shadow(
-                                      color: AppColors.white,
-                                      blurRadius: 10.0,  
+                                  Expanded(flex: 3, child: Achievements()),
+                                ],
+                              )
+                            ),
+                          ),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 2,
+                          mainAxisCellCount: 3,
+                          child: BentoContainers(color: AppColors.tertiary_purple,
+                              index: 4,
+                              child: Padding(
+                                padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                                child:  ScrollbarTheme(
+                                  data: ScrollbarThemeData(
+                                    thumbVisibility: WidgetStateProperty.all(false),
+                                    trackVisibility: WidgetStateProperty.all(false),
+                                    thickness: WidgetStateProperty.all(0.0),
+                                    interactive: false
+                                  ),
+                                  child: SingleChildScrollView(
+                                    controller: controller,
+                                    physics: const NeverScrollableScrollPhysics(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        SizedBox(
+                                          height: Globals.width! / Globals.width_300,
+                                          width: double.infinity,
+                                          child: CircleAvatar(
+                                            radius: 50.0,
+                                            backgroundColor: AppColors.white,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10.0),
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(200.0),
+                                                child: Image.asset(
+                                                  'assets/myPic.jpg',
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: Globals.width! / Globals.width_40,),
+                                        Center(
+                                          child: SizedBox(
+                                            height: Globals.width! / Globals.width_80,
+                                            width: double.infinity,
+                                            child: TypeWriter.text(
+                                              'Myself Parth Vij,\nI am a CSE student.',
+                                              repeat: repeat,
+                                              enabled: enabled,
+                                              style: TextStyle(color: AppColors.white, fontSize: Globals.width! / Globals.size_32),
+                                              textAlign: TextAlign.center,
+                                              duration: const Duration(milliseconds: 100),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: Globals.width! / Globals.width_30,),
+                                        MouseRegion(
+                                          onHover: (_) => notifier.set_know_more(true),
+                                          onExit: (_) => notifier.set_know_more(false),
+                                          cursor: SystemMouseCursors.click,
+                                          child: GestureDetector(
+                                            onTap: scrollDown,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                const Icon(Bootstrap.three_dots, color: AppColors.white),
+                                                SizedBox(width: Globals.width! / Globals.width_10),
+                                                Text(
+                                                  'Know More',
+                                                  style: TextStyle(
+                                                    fontSize: Globals.width! / Globals.size_16,
+                                                    color: AppColors.white,
+                                                    shadows: notifier.know_more
+                                                        ? [
+                                                            const Shadow(
+                                                              color: AppColors.white,
+                                                              blurRadius: 10.0,
+                                                            ),
+                                                            const Shadow(
+                                                              color: AppColors.white,
+                                                              blurRadius: 10.0,
+                                                            ),
+                                                          ]
+                                                        : [],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: Globals.width! / Globals.width_500,
+                                          child: Center(
+                                            child: Text('Bro, just scroll up, don\'t get personal.',
+                                            style: TextStyle(
+                                                    fontSize: Globals.width! / Globals.size_16,
+                                                    color: AppColors.white,)
+                                            ),
+                                          ),
+                                        ),
+                                        MouseRegion(
+                                          onHover: (_) => notifier.set_collapse(true),
+                                          onExit: (_) => notifier.set_collapse(false),
+                                          cursor: SystemMouseCursors.click,
+                                          child: GestureDetector(
+                                            onTap: ()=> scrollUp(),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                const Icon(Bootstrap.arrow_90deg_up, color: AppColors.white),
+                                                SizedBox(width: Globals.width! / Globals.width_10),
+                                                Text(
+                                                  'Know Less',
+                                                  style: TextStyle(
+                                                    fontSize: Globals.width! / Globals.size_16,
+                                                    color: AppColors.white,
+                                                    shadows: notifier.collapse
+                                                        ? [
+                                                            const Shadow(
+                                                              color: AppColors.white,
+                                                              blurRadius: 10.0,
+                                                            ),
+                                                            const Shadow(
+                                                              color: AppColors.white,
+                                                              blurRadius: 10.0,
+                                                            ),
+                                                          ]
+                                                        : [],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                     Shadow(
-                                      color: AppColors.white,
-                                      blurRadius: 10.0,  
-                                    )
+                                  ),
+                                )
+                              ),
+                            ),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 4,
+                          mainAxisCellCount: 2,
+                          child: BentoContainers(color: AppColors.secondary_purple, index: 5,
+                            child:Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                              child:  Column(
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('My Skills',
+                                        style: TextStyle(
+                                          fontSize: Globals.width! / Globals.size_32,
+                                          color: AppColors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(width: Globals.width! / Globals.width_10,),
+                                      Icon(Bootstrap.gear_wide, color: AppColors.white, size: Globals.width! / Globals.size_24,).animate(
+                                        effects: [
+                                          const RotateEffect(
+                                            duration: Duration(seconds: 2),
+                                            curve: Curves.linear,
+                                            begin: 0.0,
+                                            end: 1.0,
+                                          ),
+                                        ],
+                                        autoPlay: true,
+                                        onComplete: (_) => _.repeat(),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: Globals.width! / Globals.size_16,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(flex: 1,child: Languages()),
+                                      Expanded(flex: 1, child: Frameworks()),
+                                      Expanded(flex: 1, child: Tools()),
                                     ],
                                   )
                                 ],
-                              ),
-                              SizedBox(height: Globals.width! / Globals.size_12,),
-                              SkiilList(),
-                            ]
-                          )
-                        ),
-                      ),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 2,
-                      child: BentoContainers(
-                        color: AppColors.secondary_purple,
-                        index: 1,
-                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('Top Projects',
-                                    style: TextStyle(
-                                      fontSize: Globals.width! / Globals.size_32,
-                                      color: AppColors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(width: Globals.width! / Globals.width_10,),
-                                  const Icon(LineAwesome.project_diagram_solid, color: AppColors.white,).animate(
-                                    effects: [
-                                      const ShakeEffect(
-                                        duration: Duration(seconds: 2),
-                                        curve: Curves.decelerate,
-                                        rotation: 2.0,
-                                        hz: 0.5,
-                                      ),
-                                    ],
-                                    autoPlay: true,
-                                    onComplete: (_) => _.repeat(),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: Globals.height! / Globals.height_20,),
-                              const Spacer(),
-                              Projects(),
-                              const Spacer(),
-                            ],
-                          )
-                        )
-                        ),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 2,
-                      child: BentoContainers(color: AppColors.tertiary_purple,index: 2,
-                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: ClipRect(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      RotatedBox(
-                                        quarterTurns: 3,
-                                        child: Text('My Achievements',
+                              )
+                            ),
+                          ),
+                          ),
+                          StaggeredGridTile.count(
+                          crossAxisCellCount: 2,
+                          mainAxisCellCount: 2,
+                          child: BentoContainers(color: AppColors.primary_purple, index: 6,
+                          child: ClipRect(
+                            child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
+                              child:  notifier.hovered_bento == 6 ? RippleAnimation(
+                                color: AppColors.tertiary_purple,
+                                          minRadius: 60,
+                                          repeat: true,
+                                          ripplesCount: 5,
+                                          duration: const Duration(seconds: 2),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text('Get in Touch',
                                           style: TextStyle(
                                             fontSize: Globals.width! / Globals.size_32,
                                             color: AppColors.white,
                                           ),
                                           textAlign: TextAlign.center,
                                         ),
-                                      ),
-                                      SizedBox(height: Globals.width! / Globals.width_5,),
-                                      Expanded(child: Icon(IonIcons.trophy, color: AppColors.white, size: Globals.width! / Globals.size_24,))
-                                    ],
-                                  ).animate(
-                                    onComplete: (_) => _.repeat(),
-                                    effects: [
-                                      const SlideEffect(
-                                        duration: Duration(milliseconds: 3600),
-                                        curve: Curves.easeInOut,
-                                        begin: Offset(0.0, 1.0),
-                                        end: Offset(0.0, -1.0)
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(flex: 3, child: Achievements()),
-                            ],
-                          )
-                        ),
-                      ),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 3,
-                      child: BentoContainers(color: AppColors.tertiary_purple,
-                          index: 4,
-                          child: Padding(
-                            padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                            child:  ScrollbarTheme(
-                              data: ScrollbarThemeData(
-                                thumbVisibility: WidgetStateProperty.all(false),
-                                trackVisibility: WidgetStateProperty.all(false),
-                                thickness: WidgetStateProperty.all(0.0),
-                                interactive: false
-                              ),
-                              child: SingleChildScrollView(
-                                controller: controller,
-                                physics: const NeverScrollableScrollPhysics(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    SizedBox(
-                                      height: Globals.width! / Globals.width_300,
-                                      width: double.infinity,
-                                      child: CircleAvatar(
-                                        radius: 50.0,
-                                        backgroundColor: AppColors.white,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(200.0),
-                                            child: Image.asset(
-                                              'assets/myPic.jpg',
+                                        SizedBox(width: Globals.width! / Globals.width_10,),
+                                        Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
+                                          size: Globals.width! / Globals.size_24,
+                                          shadows: const [
+                                            Shadow(
+                                              color: AppColors.white,
+                                              blurRadius: 10.0,  
                                             ),
+                                             Shadow(
+                                              color: AppColors.white,
+                                              blurRadius: 10.0,  
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: Globals.width! / Globals.size_16,),
+                                    ContactInfo()
+                                  ],
+                                ),
+                              ) : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text('Get in Touch',
+                                          style: TextStyle(
+                                            fontSize: Globals.width! / Globals.size_32,
+                                            color: AppColors.white,
                                           ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: Globals.width! / Globals.width_40,),
-                                    Center(
-                                      child: SizedBox(
-                                        height: Globals.width! / Globals.width_80,
-                                        width: double.infinity,
-                                        child: TypeWriter.text(
-                                          'Myself Parth Vij,\nI am a CSE student.',
-                                          repeat: repeat,
-                                          enabled: enabled,
-                                          style: TextStyle(color: AppColors.white, fontSize: Globals.width! / Globals.size_32),
                                           textAlign: TextAlign.center,
-                                          duration: const Duration(milliseconds: 100),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(height: Globals.width! / Globals.width_30,),
-                                    MouseRegion(
-                                      onHover: (_) => notifier.set_know_more(true),
-                                      onExit: (_) => notifier.set_know_more(false),
-                                      cursor: SystemMouseCursors.click,
-                                      child: GestureDetector(
-                                        onTap: scrollDown,
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          children: [
-                                            const Icon(Bootstrap.three_dots, color: AppColors.white),
-                                            SizedBox(width: Globals.width! / Globals.width_10),
-                                            Text(
-                                              'Know More',
-                                              style: TextStyle(
-                                                fontSize: Globals.width! / Globals.size_16,
-                                                color: AppColors.white,
-                                                shadows: notifier.know_more
-                                                    ? [
-                                                        const Shadow(
-                                                          color: AppColors.white,
-                                                          blurRadius: 10.0,
-                                                        ),
-                                                        const Shadow(
-                                                          color: AppColors.white,
-                                                          blurRadius: 10.0,
-                                                        ),
-                                                      ]
-                                                    : [],
-                                              ),
+                                        SizedBox(width: Globals.width! / Globals.width_10,),
+                                        Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
+                                          size: Globals.width! / Globals.size_24,
+                                          shadows: const [
+                                            Shadow(
+                                              color: AppColors.white,
+                                              blurRadius: 10.0,  
                                             ),
+                                             Shadow(
+                                              color: AppColors.white,
+                                              blurRadius: 10.0,  
+                                            )
                                           ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: Globals.width! / Globals.width_500,
-                                      child: Center(
-                                        child: Text('Bro, just scroll up, don\'t get personal.',
-                                        style: TextStyle(
-                                                fontSize: Globals.width! / Globals.size_16,
-                                                color: AppColors.white,)
-                                        ),
-                                      ),
-                                    ),
-                                    MouseRegion(
-                                      onHover: (_) => notifier.set_collapse(true),
-                                      onExit: (_) => notifier.set_collapse(false),
-                                      cursor: SystemMouseCursors.click,
-                                      child: GestureDetector(
-                                        onTap: ()=> scrollUp(),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                          children: [
-                                            const Icon(Bootstrap.arrow_90deg_up, color: AppColors.white),
-                                            SizedBox(width: Globals.width! / Globals.width_10),
-                                            Text(
-                                              'Know Less',
-                                              style: TextStyle(
-                                                fontSize: Globals.width! / Globals.size_16,
-                                                color: AppColors.white,
-                                                shadows: notifier.collapse
-                                                    ? [
-                                                        const Shadow(
-                                                          color: AppColors.white,
-                                                          blurRadius: 10.0,
-                                                        ),
-                                                        const Shadow(
-                                                          color: AppColors.white,
-                                                          blurRadius: 10.0,
-                                                        ),
-                                                      ]
-                                                    : [],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ),
-                        ),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 4,
-                      mainAxisCellCount: 2,
-                      child: BentoContainers(color: AppColors.secondary_purple, index: 5,
-                        child:Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child:  Column(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('My Skills',
-                                    style: TextStyle(
-                                      fontSize: Globals.width! / Globals.size_32,
-                                      color: AppColors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SizedBox(width: Globals.width! / Globals.width_10,),
-                                  Icon(Bootstrap.gear_wide, color: AppColors.white, size: Globals.width! / Globals.size_24,).animate(
-                                    effects: [
-                                      const RotateEffect(
-                                        duration: Duration(seconds: 2),
-                                        curve: Curves.linear,
-                                        begin: 0.0,
-                                        end: 1.0,
-                                      ),
-                                    ],
-                                    autoPlay: true,
-                                    onComplete: (_) => _.repeat(),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: Globals.width! / Globals.size_16,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(flex: 1,child: Languages()),
-                                  Expanded(flex: 1, child: Frameworks()),
-                                  Expanded(flex: 1, child: Tools()),
-                                ],
-                              )
-                            ],
-                          )
-                        ),
-                      ),
-                      ),
-                      StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 2,
-                      child: BentoContainers(color: AppColors.primary_purple, index: 6,
-                      child: ClipRect(
-                        child: Padding(padding: EdgeInsets.all(Globals.width! / Globals.size_20),
-                          child:  notifier.hovered_bento == 6 ? RippleAnimation(
-                            color: AppColors.tertiary_purple,
-                                      minRadius: 60,
-                                      repeat: true,
-                                      ripplesCount: 5,
-                                      duration: const Duration(seconds: 2),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text('Get in Touch',
-                                      style: TextStyle(
-                                        fontSize: Globals.width! / Globals.size_32,
-                                        color: AppColors.white,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    SizedBox(width: Globals.width! / Globals.width_10,),
-                                    Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
-                                      size: Globals.width! / Globals.size_24,
-                                      shadows: const [
-                                        Shadow(
-                                          color: AppColors.white,
-                                          blurRadius: 10.0,  
-                                        ),
-                                         Shadow(
-                                          color: AppColors.white,
-                                          blurRadius: 10.0,  
                                         )
                                       ],
-                                    )
+                                    ),
+                                    SizedBox(height: Globals.width! / Globals.size_16,),
+                                    ContactInfo()
                                   ],
-                                ),
-                                SizedBox(height: Globals.width! / Globals.size_16,),
-                                ContactInfo()
-                              ],
+                                )
                             ),
-                          ) : Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text('Get in Touch',
-                                      style: TextStyle(
-                                        fontSize: Globals.width! / Globals.size_32,
-                                        color: AppColors.white,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    SizedBox(width: Globals.width! / Globals.width_10,),
-                                    Icon(Clarity.cursor_hand_click_line, color: AppColors.diffWhite,
-                                      size: Globals.width! / Globals.size_24,
-                                      shadows: const [
-                                        Shadow(
-                                          color: AppColors.white,
-                                          blurRadius: 10.0,  
-                                        ),
-                                         Shadow(
-                                          color: AppColors.white,
-                                          blurRadius: 10.0,  
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: Globals.width! / Globals.size_16,),
-                                ContactInfo()
-                              ],
-                            )
-                        ),
-                      )
-                      ),
+                          )
+                          ),
+                          ),
+                      ],
                       ),
                   ],
-                  )
+                )
               ),
         ),
       ),

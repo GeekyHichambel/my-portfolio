@@ -10,9 +10,9 @@ import 'package:url_launcher/url_launcher_string.dart';
 class Project {
   String image;
   String about;
-  String link;
+  String? link;
 
-  Project({required this.image, required this.about, required this.link});
+  Project({required this.image, required this.about, this.link});
 }
 
 class Projects extends StatefulWidget {
@@ -35,7 +35,7 @@ class ProjectsState extends State<Projects> {
       Project(
           image: 'assets/logo_bg.png',
           about: 'A Gamified To-Do list app with virtual pets',
-          link: 'https://github.com/GeekyHichambel/Pawfect_Tasks'),
+          ),
       Project(
           image: 'assets/ic_launch-playstore.png',
           about: 'A Web3 wallet for safe-guarding crypto assets',
@@ -157,11 +157,11 @@ class ProjectsState extends State<Projects> {
                                   textAlign: TextAlign.center,
                                 ),
                               ),
-                              Expanded(
+                              projects[index].link != null ? Expanded(
                                 child: ElevatedButton(
                                   onPressed: () async {
                                     var url = projects[index].link;
-                                    if (await canLaunchUrlString(url)) {
+                                    if (await canLaunchUrlString(url!)) {
                                       launchUrlString(url);
                                     }
                                   },
@@ -190,7 +190,7 @@ class ProjectsState extends State<Projects> {
                                     ],
                                   ),
                                 ),
-                              ),
+                              ) : const SizedBox.shrink(),
                             ],
                           ),
                         ),

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
@@ -33,6 +32,7 @@ class ReveiwShowcaseState extends State<ReveiwShowcase>{
   ];
 
   late final PageController pageController;
+  bool isMale = true;
   late final Timer timer;
 
   @override
@@ -84,7 +84,7 @@ class ReveiwShowcaseState extends State<ReveiwShowcase>{
               children: [
                 Positioned(
                   width: Globals.width,
-                  height: Globals.width! / Globals.height_500,
+                  height: Globals.width! / Globals.height_500 * 10,
                   child: ClipRect(
                     child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
@@ -94,72 +94,223 @@ class ReveiwShowcaseState extends State<ReveiwShowcase>{
                   ),
                   ),
                 ),
-                Container(
-                      width: Globals.width,
-                      height: Globals.width! / Globals.height_500,
-                      padding: const EdgeInsets.all(Globals.Padding),
-                decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                child: PageView.builder(
-                  controller: pageController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  itemCount: reviews.length,
-                  itemBuilder: (context, index){return Row(
+                Padding(
+                  padding: const EdgeInsets.all(Globals.Padding),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      Expanded(child: Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                      Text(
+                        'Hear from my Clients..',
+                        style: TextStyle(
+                          color: AppColors.tertiary_purple,
+                          fontSize: Globals.width! / Globals.size_32 * 2,
+                        ),
+                      ),
+                      SizedBox(height: Globals.width! / Globals.width_40,),
+                      Container(
+                            width: Globals.width,
+                            height: Globals.width! / Globals.height_500,
+                            padding: const EdgeInsets.all(0.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border(bottom: BorderSide(color: AppColors.dark_purple))
+                      ),
+                      child: PageView.builder(
+                        controller: pageController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        itemCount: reviews.length,
+                        itemBuilder: (context, index){return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
                           children: [
-                            RichText(text: TextSpan(
-                              style: TextStyle(
-                                fontFamily: Globals.sysFont,
-                                fontSize: Globals.width! / Globals.size_32 * 2, 
-                                color: AppColors.primary_purple
+                            Expanded(child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RichText(text: TextSpan(
+                                    style: TextStyle(
+                                      fontFamily: Globals.sysFont,
+                                      fontSize: Globals.width! / Globals.size_32 * 2, 
+                                      color: AppColors.primary_purple
+                                    ),
+                                    children: [
+                                      const TextSpan(text: '"', ),
+                                      TextSpan(text: reviews[index].message,),
+                                      const TextSpan(text: '"' ,),
+                                    ]
+                                  )),
+                                  Align(
+                                    alignment: AlignmentDirectional.centerEnd,
+                                    child: Text("~ ${reviews[index].name}", style: TextStyle(fontSize: Globals.width! / Globals.size_32, color: AppColors.tertiary_purple)),
+                                  )
+                                ],
                               ),
-                              children: [
-                                const TextSpan(text: '"', ),
-                                TextSpan(text: reviews[index].message,),
-                                const TextSpan(text: '"' ,),
-                              ]
                             )),
-                            Align(
-                              alignment: AlignmentDirectional.centerEnd,
-                              child: Text("~ ${reviews[index].name}", style: TextStyle(fontSize: Globals.width! / Globals.size_32, color: AppColors.tertiary_purple)),
-                            )
+                            Expanded(child: Container(
+                              padding: EdgeInsets.all(Globals.width! / Globals.width_30),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  LottieBuilder.asset('assets/blob.json',),
+                                  Positioned(
+                                    width: Globals.width! / Globals.width_300,
+                                    height: Globals.width! / Globals.width_300,
+                                    child: CircleAvatar(
+                                      radius: 16.0,
+                                      child: Padding(
+                                        padding: EdgeInsets.all(Globals.width! / Globals.width_40),
+                                        child: Image.asset(reviews[index].isMale ? 'assets/man.png' : 'assets/woman.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    )
+                                  )
+                                ],
+                              ),
+                            ),),
                           ],
+                        );},
+                      )
+                      ),
+                      SizedBox(height: Globals.width! / Globals.width_80,),
+                        Text(
+                        'Leave one of your own..',
+                        style: TextStyle(
+                          color: AppColors.tertiary_purple,
+                          fontSize: Globals.width! / Globals.size_32,
                         ),
-                      )),
-                      Expanded(child: Container(
-                        padding: EdgeInsets.all(Globals.width! / Globals.width_30),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            LottieBuilder.asset('assets/blob.json',),
-                            Positioned(
-                              width: Globals.width! / Globals.width_300,
-                              height: Globals.width! / Globals.width_300,
-                              child: CircleAvatar(
-                                radius: 16.0,
-                                child: Padding(
-                                  padding: EdgeInsets.all(Globals.width! / Globals.width_40),
-                                  child: Image.asset(reviews[index].isMale ? 'assets/man.png' : 'assets/woman.png',
-                                    fit: BoxFit.contain,
+                      ),
+                      SizedBox(height: Globals.width! / Globals.width_10 * 5,),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              width: Globals.width! * 0.8,
+                              padding: const EdgeInsets.all(Globals.Padding * 0.5),
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                borderRadius: BorderRadius.circular(16.0),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: AppColors.magical_pink,
+                                    blurRadius: 10.0,
+                                    spreadRadius: 5.0
+                                  )
+                                ],
+                                border: Border.all(color: AppColors.magical_pink, width: 1.0)
+                              ),
+                              child: Column(
+                                children: [
+                                   Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Container(
+                                      padding: EdgeInsets.all(Globals.width! / Globals.width_10),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: AppColors.primary_purple),
+                                        borderRadius: BorderRadius.circular(16.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          TextButton(onPressed: (){
+                                             setState(() {
+                                              isMale = !isMale;
+                                            });                    
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor: WidgetStatePropertyAll(isMale ? AppColors.primary_purple : Colors.transparent)
+                                          ),
+                                           child: Text(
+                                          'Male',
+                                          style: TextStyle(
+                                            color: isMale? AppColors.white : AppColors.dark_purple,
+                                            fontSize: Globals.width! / Globals.size_16,
+                                          ),
+                                                                            ),),
+                                          SizedBox(width: Globals.width! / Globals.width_5,),
+                                          TextButton(onPressed: (){
+                                            setState(() {
+                                              isMale = !isMale;
+                                            });                          
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor: WidgetStatePropertyAll(!isMale ? AppColors.primary_purple : Colors.transparent)
+                                          ),
+                                           child: Text(
+                                          'Female',
+                                          style: TextStyle(
+                                            color: !isMale? AppColors.white : AppColors.dark_purple,
+                                            fontSize: Globals.width! / Globals.size_16,
+                                          ),
+                                                                            ),),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              )
-                            )
-                          ],
-                        ),
-                      ),),
+                                  ListTile(
+                                    leading: Text(
+                                    'Name:',
+                                    style: TextStyle(
+                                      color: AppColors.tertiary_purple,
+                                      fontSize: Globals.width! / Globals.size_16,
+                                    ),
+                                  ),
+                                    title: const TextField(
+                                      style: TextStyle(
+                                        
+                                      ),
+                                    ),
+                                  ),
+                                      ListTile(
+                                    leading: Text(
+                                    'Review:',
+                                    style: TextStyle(
+                                      color: AppColors.tertiary_purple,
+                                      fontSize: Globals.width! / Globals.size_16,
+                                    ),
+                                  ),
+                                    title: const TextField(
+                                      style: TextStyle(
+                                        
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: Globals.width! / Globals.width_30,),
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: TextButton(onPressed: (){
+                            
+                                    },
+                                    style: const ButtonStyle(
+                                      backgroundColor: WidgetStatePropertyAll(AppColors.primary_purple)
+                                    ),
+                                     child: Text(
+                                    'Post',
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      fontSize: Globals.width! / Globals.size_16,
+                                    ),
+                                  ),),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(child: Image.asset(
+                            'assets/review.png',
+                            fit: BoxFit.contain,
+                          )),
+                        ],
+                      )
                     ],
-                  );},
-                )
+                  ),
                 ),
               ],
             ),
