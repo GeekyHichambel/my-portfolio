@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/colors.dart';
+import 'package:my_portfolio/globals.dart';
+import 'package:my_portfolio/pages/Mobile/MobileDrawer.dart';
+import 'package:my_portfolio/pages/Mobile/MobileNavBar.dart';
 
 class MobileHome extends StatelessWidget{
-  Widget? navbar;
-  Widget? header;
-  Widget? body;
-  Widget? footer;
+  final Widget? header;
+  final Widget? body;
+  final Widget? footer;
 
-  MobileHome({this.navbar, this.header, this.body, this.footer, super.key});
+  const MobileHome({this.header, this.body, this.footer, super.key});
 
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: PreferredSize(preferredSize: const Size.fromHeight(200), child: navbar!),
+      drawer: const MobileDrawer(),
+      backgroundColor: AppColors.white,
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.width! / Globals.height_100 * 1.5), child: const MobileNavBar()),
       body: SingleChildScrollView(
+        controller: Globals.scrollController,
         child: Column(
           children: [
-            //header!,
-            //body!,
+            header!,
+            body!,
             //footer!,
           ],
         )

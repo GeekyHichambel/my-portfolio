@@ -175,7 +175,7 @@ class BentoGridState extends State<Bentogrid>{
                                   ),
                                   SizedBox(height: Globals.height! / Globals.height_20,),
                                   const Spacer(),
-                                  Projects(),
+                                  const Projects(),
                                   const Spacer(),
                                 ],
                               )

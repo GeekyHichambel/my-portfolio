@@ -40,9 +40,9 @@ static dynamic checkPlatform(BuildContext context){
   width = MediaQuery.of(context).size.width;
   height = MediaQuery.of(context).size.height;
   print(width);
-  if (width! < 450){
+  if (width! <= 600){
     return 'Mobile';
-  }else if (width! >= 450 && width! < 800){
+  }else if (width! > 600 && width! < 800){
     return 'Tablet';
   }
   return 'Desktop';
