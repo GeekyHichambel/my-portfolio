@@ -11,32 +11,35 @@ class Contact{
 }
 
 class ContactInfo extends StatelessWidget{
+  final bool isMobile;
 
   final List contacts = [
-    Contact(icon: Iconsax.instagram_bold, label: 'parth._.vij'),
+    Contact(icon: Iconsax.instagram_bold, label: 'iparthvij'),
     Contact(icon: EvaIcons.github, label: 'GeekyHichambel'),
     Contact(icon: IonIcons.mail, label: 'parth3658gcisb@gmail.com'),
   ];
+
+  ContactInfo({this.isMobile=false, super.key});
 
   @override
   Widget build(BuildContext context){
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: isMobile? MainAxisAlignment.start : MainAxisAlignment.center,
         children: [
           for (var contact in contacts) ListTile(
               contentPadding: EdgeInsets.zero,
-              minVerticalPadding: 0.0,
-              minTileHeight: Globals.height! / Globals.height_40,
+              minVerticalPadding: isMobile? Globals.width! / Globals.width_30 : 0.0,
+              minTileHeight: isMobile? Globals.width! / Globals.width_30*2 : Globals.height! / Globals.height_40,
               mouseCursor: SystemMouseCursors.text,
-              leading: Icon(contacts[contacts.indexOf(contact)].icon, color: AppColors.tertiary_purple, size: Globals.width! / Globals.size_20,),
+              leading: Icon(contacts[contacts.indexOf(contact)].icon, color: AppColors.tertiary_purple, size: isMobile?  Globals.width! / Globals.width_30*2 : Globals.width! / Globals.size_20,),
               title:  SelectableText(contacts[contacts.indexOf(contact)].label,
                                   style: TextStyle(
-                                    fontSize: Globals.width! / Globals.size_16,
+                                    fontSize: isMobile? Globals.width! / Globals.width_30*2 :Globals.width! / Globals.size_16,
                                     color: AppColors.white,
                                   ),
-                                  enableInteractiveSelection: true,
+                                  enableInteractiveSelection: isMobile? false : true,
                               ),
             )
            

@@ -22,88 +22,22 @@ class Tools extends StatelessWidget{
    Tool(icon: BoxIcons.bxl_visual_studio, label: 'Visual Studio'),
   ];
 
-  Tools({super.key});
+  final bool isMobile;
+
+  Tools({this.isMobile=false, super.key});
 
 
   @override
   Widget build(BuildContext context){
     return Container(
-      height: Globals.width! / Globals.height_100 + 48,
+         height: isMobile? Globals.width! / Globals.height_200 : Globals.width! / Globals.height_100 + 48,
       width: double.maxFinite,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Expanded(child: Text('Tools',
             style: TextStyle(
-              fontSize: Globals.width! / Globals.size_16,
-              color: AppColors.white,
-              shadows: const [
-                BoxShadow(
-                  color: AppColors.white,
-                  blurRadius: 10.0,
-                  blurStyle: BlurStyle.outer,
-                ),
-                BoxShadow(
-                  color: AppColors.white,
-                  blurRadius: 10.0,
-                  blurStyle: BlurStyle.outer,
-                )
-              ]
-            ), 
-          ),
-          ),
-          Expanded(
-            flex: 10,
-            child: ScrollbarTheme(
-              data: const ScrollbarThemeData(interactive: false),
-              child: GridView.builder(
-                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
-                itemCount: tools.length,
-                itemBuilder: (context, index){
-                  return Tooltip(
-                    message: tools[index].label,
-                    child: (
-                      Icon(tools[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
-                    ),
-                  );
-                } 
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Languages extends StatelessWidget{
-  
-  final List languages = [
-    Tool(icon: BoxIcons.bxl_c_plus_plus, label: 'C++'),
-    Tool(icon: Bootstrap.filetype_java, label: 'Java'),
-    Tool(icon: BoxIcons.bxl_javascript, label: 'JavaScript'),
-    Tool(icon: BoxIcons.bxl_typescript, label: 'Typescript'),
-    Tool(icon: BoxIcons.bxl_python, label: 'Python'),
-    Tool(icon: BoxIcons.bxl_html5, label: 'HTML'),
-    Tool(icon: BoxIcons.bxl_css3, label: 'CSS'),
-  ];
-
-  Languages({super.key});
-
-
-  @override
-  Widget build(BuildContext context){
-    return Container(
-         height: Globals.width! / Globals.height_100 + 48,
-      width: double.maxFinite,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(child: Text('Languages',
-            style: TextStyle(
-              fontSize: Globals.width! / Globals.size_16,
+              fontSize: isMobile? Globals.width! / Globals.width_40 : Globals.width! / Globals.size_16,
               color: AppColors.white,
               shadows: const [
                 BoxShadow(
@@ -120,16 +54,84 @@ class Languages extends StatelessWidget{
             ), 
           )),
           Expanded(
-            flex: 10,
+            flex: isMobile? 7 : 10,
             child: ScrollbarTheme(
               data: const ScrollbarThemeData(interactive: false),
               child: GridView.builder(
-                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
+                padding: EdgeInsets.all(isMobile? Globals.width! / Globals.width_5 : Globals.width! / Globals.size_32),
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: isMobile? 5 : 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
+                itemCount: tools.length,
+                itemBuilder: (context, index){
+                  return isMobile? Icon(tools[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.width_10 * 6,) : Tooltip(
+                    message: tools[index].label,
+                    child: (
+                      Icon(tools[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
+                    ),
+                  );
+                } 
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Languages extends StatelessWidget{
+  final bool isMobile;
+  
+  final List languages = [
+    Tool(icon: BoxIcons.bxl_c_plus_plus, label: 'C++'),
+    Tool(icon: Bootstrap.filetype_java, label: 'Java'),
+    Tool(icon: BoxIcons.bxl_javascript, label: 'JavaScript'),
+    Tool(icon: BoxIcons.bxl_typescript, label: 'Typescript'),
+    Tool(icon: BoxIcons.bxl_python, label: 'Python'),
+    Tool(icon: BoxIcons.bxl_html5, label: 'HTML'),
+    Tool(icon: BoxIcons.bxl_css3, label: 'CSS'),
+  ];
+
+  Languages({this.isMobile = false, super.key});
+
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+         height: isMobile? Globals.width! / Globals.height_200 : Globals.width! / Globals.height_100 + 48,
+      width: double.maxFinite,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(child: Text('Languages',
+            style: TextStyle(
+              fontSize: isMobile? Globals.width! / Globals.width_40 : Globals.width! / Globals.size_16,
+              color: AppColors.white,
+              shadows: const [
+                BoxShadow(
+                  color: AppColors.white,
+                  blurRadius: 10.0,
+                  blurStyle: BlurStyle.outer,
+                ),
+                BoxShadow(
+                  color: AppColors.white,
+                  blurRadius: 10.0,
+                  blurStyle: BlurStyle.outer,
+                )
+              ]
+            ), 
+          )),
+          Expanded(
+            flex: isMobile ? 7 : 10,
+            child: ScrollbarTheme(
+              data: const ScrollbarThemeData(interactive: false),
+              child: GridView.builder(
+                padding: EdgeInsets.all(isMobile? Globals.width! / Globals.width_5: Globals.width! / Globals.size_32),
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: isMobile? 5 : 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
                 itemCount: languages.length,
                 itemBuilder: (context, index){
-                  return Tooltip(
+                  return isMobile? Icon(languages[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.width_10 * 6,) : Tooltip(
                     message: languages[index].label,
                     child: (
                       Icon(languages[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)
@@ -155,20 +157,22 @@ class Frameworks extends StatelessWidget{
    Tool(icon: TeenyIcons.nodejs, label: 'NodeJS'),
   ];
 
-  Frameworks({super.key});
+  final bool isMobile;
+
+  Frameworks({this.isMobile=false,super.key});
 
 
   @override
   Widget build(BuildContext context){
     return Container(
-      height: Globals.width! / Globals.height_100 + 48,
+         height: isMobile? Globals.width! / Globals.height_200 : Globals.width! / Globals.height_100 + 48,
       width: double.maxFinite,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Expanded(child: Text('Frameworks',
             style: TextStyle(
-              fontSize: Globals.width! / Globals.size_16,
+              fontSize: isMobile? Globals.width! / Globals.width_40 : Globals.width! / Globals.size_16,
               color: AppColors.white,
               shadows: const [
                 BoxShadow(
@@ -183,19 +187,18 @@ class Frameworks extends StatelessWidget{
                 )
               ]
             ), 
-          ),  
-          ),
+          )),
           Expanded(
-            flex: 10,
+            flex: isMobile? 7 : 10,
             child: ScrollbarTheme(
               data: const ScrollbarThemeData(interactive: false),
               child: GridView.builder(
-                padding: EdgeInsets.all(Globals.width! / Globals.size_32),
+                padding: EdgeInsets.all(isMobile? Globals.width! / Globals.width_5: Globals.width! / Globals.size_32),
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0, mainAxisSpacing: 0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: isMobile? 5 : 3, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
                 itemCount: frameworks.length,
                 itemBuilder: (context, index){
-                  return Tooltip(
+                  return isMobile? Icon(frameworks[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.width_10 * 6,) : Tooltip(
                     message: frameworks[index].label,
                     child: (
                       Icon(frameworks[index].icon, color: AppColors.dark_purple, size: Globals.width! / Globals.size_24,)

@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/globals.dart';
 
 class Achievements extends StatelessWidget{
+  final bool isMobile;
   final List achievements = [
     
   ];
+
+  Achievements({this.isMobile = false,super.key});
 
   @override
   Widget build(BuildContext context){
@@ -14,7 +16,7 @@ class Achievements extends StatelessWidget{
       child: achievements.isEmpty ?Center(
         child: Text('Nothing much to display',
                                             style: TextStyle(
-                                              fontSize: Globals.width! / Globals.size_20,
+                                              fontSize: isMobile? Globals.width! / Globals.width_30*2 : Globals.width! / Globals.size_20,
                                               color: AppColors.white,
                                             ),
                                             textAlign: TextAlign.center,

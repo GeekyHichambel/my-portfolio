@@ -16,7 +16,8 @@ class Project {
 }
 
 class Projects extends StatefulWidget {
-  const Projects({super.key});
+  final bool isMobile;
+  const Projects({this.isMobile=false, super.key});
 
   @override
   ProjectsState createState() => ProjectsState();
@@ -88,7 +89,104 @@ class ProjectsState extends State<Projects> {
   Widget build(BuildContext context) {
     Config notifier = Provider.of<Config>(context);
 
-    return Row(
+    return widget.isMobile ? ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Container(
+              height: Globals.width! / Globals.width_500,
+              decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(16.0),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: AppColors.white,
+                        blurRadius: 16.0,
+                        spreadRadius: 4.0,
+                        blurStyle: BlurStyle.outer),
+                  ]),
+              child: PageView.builder(
+                clipBehavior: Clip.none,
+                physics: const NeverScrollableScrollPhysics(),
+                controller: controller,
+                itemCount: projects.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5.0),
+                          child: Image.asset(
+                            projects[index].image,
+                            filterQuality: FilterQuality.high,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(Globals.width! / Globals.width_30),
+                          color: AppColors.dark_purple,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  projects[index].about,
+                                  style: TextStyle(
+                                    fontSize: Globals.width! / Globals.width_30*2,
+                                    color: AppColors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              projects[index].link != null ? Expanded(
+                                child: ElevatedButton(
+                                  onPressed: () async {
+                                    var url = projects[index].link;
+                                    if (await canLaunchUrlString(url!)) {
+                                      launchUrlString(url);
+                                    }
+                                  },
+                                  style: const ButtonStyle(
+                                    padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                                    backgroundColor:
+                                        WidgetStatePropertyAll(
+                                            AppColors.primary_purple),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        EvaIcons.paper_plane,
+                                        color: AppColors.white,
+                                        size: Globals.width! / Globals.width_40,
+                                      ),
+                                      SizedBox(width: Globals.width! / Globals.width_30),
+                                      Text(
+                                        'View Project',
+                                        style: TextStyle(
+                                            fontSize: Globals.width! / Globals.width_40,
+                                            color: AppColors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ) : const SizedBox.shrink(),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            ),
+          ) : Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

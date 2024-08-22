@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/colors.dart';
 import 'package:my_portfolio/globals.dart';
@@ -12,7 +14,17 @@ class MobileNavBar extends StatelessWidget{
   Widget build(BuildContext context) {
     Config notifier = Provider.of<Config>(context);
     return AppBar(
-      backgroundColor: AppColors.primary_purple,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      flexibleSpace: ClipRRect(
+        child: BackdropFilter(filter: ImageFilter.blur(
+          sigmaX: 2.0,
+          sigmaY: 2.0,
+        ),
+        child: Container(
+          decoration: BoxDecoration(color: AppColors.white.withOpacity(0.45)),
+        ),
+        ),),
       centerTitle: true,
       title: Padding(
         padding: EdgeInsets.only(top: Globals.width! / Globals.width_40),
@@ -28,7 +40,7 @@ class MobileNavBar extends StatelessWidget{
       leading: Padding(
         padding: EdgeInsets.only(top: Globals.width! / Globals.width_40),
         child: DrawerButton(
-          color: AppColors.white,
+          color: AppColors.black,
           onPressed: ()=>{
             Scaffold.of(context).openDrawer()
           },
