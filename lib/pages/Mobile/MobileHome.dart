@@ -14,7 +14,7 @@ class MobileHome extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      drawer: const MobileDrawer(),
+      // drawer: const MobileDrawer(),
       backgroundColor: AppColors.white,
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(preferredSize: Size.fromHeight(Globals.width! / Globals.height_100 * 1.5), child: const MobileNavBar()),

@@ -37,15 +37,15 @@ class MobileNavBar extends StatelessWidget{
           ),
         ),
       ),
-      leading: Padding(
-        padding: EdgeInsets.only(top: Globals.width! / Globals.width_40),
-        child: DrawerButton(
-          color: AppColors.black,
-          onPressed: ()=>{
-            Scaffold.of(context).openDrawer()
-          },
-        ),
-      ),
+      // leading: Padding(
+      //   padding: EdgeInsets.only(top: Globals.width! / Globals.width_40),
+      //   child: DrawerButton(
+      //     color: AppColors.black,
+      //     onPressed: ()=>{
+      //       Scaffold.of(context).openDrawer()
+      //     },
+      //   ),
+      // ),
     );
   }
 }
